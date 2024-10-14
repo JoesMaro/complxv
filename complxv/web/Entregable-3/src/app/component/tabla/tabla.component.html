@@ -1,0 +1,32 @@
+<div class="container mt-3">
+    <h2>CONTROL DE LIBROS</h2>
+    <p>Bienvenido Administrador ! , Aqui podra editar , agregar , eliminar libros  segun su necesidad </p>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>TITULO</th>
+          <th>DESCRIPCION</th>
+          <th>IMAGEN</th>
+          <th>PAGINAS</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of libros; track item) {
+        <tr>
+          <td>{{item.id}}</td>
+          <td>{{item.titulo}}</td>
+          <td>{{item.descripcion}}</td>
+          <td>{{item.imagen_portada}}</td>
+          <td>{{item.paginas}}</td>
+          <td>
+            <button class="btn btn-success" [routerLink]="['/editar/',item.id]" routerLinkActive="router-link-active" >Editar</button>
+
+            <button class="btn btn-warning" (click)="eliminar(item.id)">Eliminar</button>
+          </td>
+        </tr>
+    }
+      </tbody>
+    </table>
+  </div>

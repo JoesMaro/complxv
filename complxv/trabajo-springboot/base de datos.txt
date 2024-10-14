@@ -1,0 +1,145 @@
+Para crear base de datos: CREATE DATABASE taller;
+
+Para crear una tabla :
+CREATE TABLE productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    precio DECIMAL(10, 2),
+    cantidad INT
+);
+
+Para insertar datos :
+INSERT INTO productos (nombre, precio, cantidad)
+VALUES ('Laptop', 750.00, 5),
+       ('Smartphone', 300.00, 10),
+       ('Monitor', 200.00, 8);
+
+Para actualizar :
+UPDATE productos
+SET precio = 320.00
+WHERE nombre = 'Smartphone';
+
+
+Para eliminar datos :
+DELETE FROM productos
+WHERE nombre = 'Monitor';
+
+Para crear otra tabla :
+CREATE TABLE clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    email VARCHAR(100),
+    telefono VARCHAR(15)
+);
+
+Para crear relaciones : 
+CREATE TABLE ventas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT,
+    producto_id INT,
+    cantidad INT,
+    fecha DATE,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+    FOREIGN KEY (producto_id) REFERENCES productos(id)
+);
+
+Uso del join 
+
+SELECT clientes.nombre AS cliente, productos.nombre AS producto, ventas.cantidad, ventas.fecha
+FROM ventas
+JOIN clientes ON ventas.cliente_id = clientes.id
+JOIN productos ON ventas.producto_id = productos.id;
+
+
+1. Trigger Básico
+Un trigger es un conjunto de instrucciones que se ejecutan automáticamente en respuesta a ciertos eventos en una tabla (por ejemplo, antes o después de una inserción, actualización o eliminación).
+
+Ejemplo: Trigger que registra la fecha de actualización
+Imagina que tienes una tabla productos y quieres registrar automáticamente la fecha de la última actualización en una columna fecha_actualizacion cada vez que se actualiza un producto.
+
+Primero, asegúrate de que tu tabla productos tiene una columna para la fecha de actualización:
+
+sql
+Copiar código
+ALTER TABLE productos ADD COLUMN fecha_actualizacion DATETIME;
+Ahora, crea un trigger que se active después de una actualización en la tabla productos:
+
+sql
+Copiar código
+CREATE TRIGGER actualizar_fecha
+AFTER UPDATE ON productos
+FOR EACH ROW
+BEGIN
+    UPDATE productos SET fecha_actualizacion = NOW() WHERE id = NEW.id;
+END;
+Este trigger automáticamente actualiza la columna fecha_actualizacion con la fecha y hora actuales cada vez que se actualiza un registro.
+
+2. Función Básica
+Una función en MySQL te permite encapsular una lógica reutilizable y devolver un valor. Las funciones se pueden utilizar dentro de consultas SELECT y otras partes del SQL.
+
+Ejemplo: Función para calcular un descuento
+Vamos a crear una función que calcula un descuento del 10% sobre un precio dado.
+
+sql
+Copiar código
+DELIMITER //
+
+CREATE FUNCTION calcular_descuento(precio DECIMAL(10, 2))
+RETURNS DECIMAL(10, 2)
+DETERMINISTIC
+BEGIN
+    RETURN precio * 0.90;  -- Aplica un descuento del 10%
+END //
+
+DELIMITER ;
+Ahora puedes usar esta función en una consulta SELECT:
+
+sql
+Copiar código
+SELECT nombre, precio, calcular_descuento(precio) AS precio_con_descuento
+FROM productos;
+3. Trigger de Auditoría Básico
+Si quieres registrar todas las eliminaciones de productos en una tabla de auditoría, podrías crear un trigger que lo haga.
+
+Primero, crea una tabla para almacenar la auditoría:
+
+sql
+Copiar código
+CREATE TABLE auditoria_eliminaciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    producto_id INT,
+    nombre_producto VARCHAR(100),
+    fecha_eliminacion DATETIME
+);
+Luego, crea un trigger que se active antes de eliminar un producto, para registrar la información en la tabla de auditoría:
+
+sql
+Copiar código
+CREATE TRIGGER registrar_eliminacion
+BEFORE DELETE ON productos
+FOR EACH ROW
+BEGIN
+    INSERT INTO auditoria_eliminaciones (producto_id, nombre_producto, fecha_eliminacion)
+    VALUES (OLD.id, OLD.nombre, NOW());
+END;
+Este trigger registra en la tabla auditoria_eliminaciones cada vez que un producto es eliminado.
+
+4. Función Matemática Sencilla
+Un ejemplo más sencillo de función podría ser una que calcule el cuadrado de un número:
+
+sql
+Copiar código
+DELIMITER //
+
+CREATE FUNCTION cuadrado(numero INT)
+RETURNS INT
+BEGIN
+    RETURN numero * numero;
+END //
+
+DELIMITER ;
+Puedes usar esta función en una consulta:
+
+sql
+Copiar código
+SELECT cuadrado(5);  -- Resultado: 25

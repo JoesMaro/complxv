@@ -1,0 +1,25 @@
+<div class="container mt-3">
+    <h2>LIBROS RECOMENDADOS</h2>
+    <p>Disfruta del Top Ten de los libros mas leidos en la pagina  </p>            
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>TITULO</th>
+          <th>DESCRIPCION</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of libros; track item) {
+        <tr>
+          <td>{{item.id}}</td>
+          <td>{{item.titulo}}</td>
+          <td>{{item.descripcion}}</td>
+          <td>
+          </td>
+        </tr>
+    }
+      </tbody>
+    </table>
+  </div>

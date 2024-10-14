@@ -1,0 +1,91 @@
+{
+  "libros": [
+    {
+      "titulo": "Matar a un ruiseñor",
+      "descripcion": "Una novela sobre la injusticia racial en el sur profundo de Estados Unidos.",
+      "imagen_portada": "https://raw.githubusercontent.com/jritsqmet/web-api/main/assets/images/api-libros/ruise%C3%B1or.jpg",
+      "paginas": 281,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "titulo": "Orgullo y prejuicio",
+      "descripcion": "Una novela clásica sobre los modales y las maquinaciones matrimoniales de la clase media británica a finales del siglo XVIII.",
+      "imagen_portada": "https://raw.githubusercontent.com/jritsqmet/web-api/main/assets/images/api-libros/orgullo.jpg",
+      "paginas": 279
+    },
+    {
+      "id": 4,
+      "titulo": "El gran Gatsby",
+      "descripcion": "Una novela sobre el sueño americano y los años 20 en Estados Unidos.",
+      "imagen_portada": "https://raw.githubusercontent.com/jritsqmet/web-api/main/assets/images/api-libros/gatsby.jpeg",
+      "paginas": 218
+    },
+    {
+      "id": 5,
+      "titulo": "Moby Dick",
+      "descripcion": "Una novela sobre el viaje del barco ballenero Pequod.",
+      "imagen_portada": "https://raw.githubusercontent.com/jritsqmet/web-api/main/assets/images/api-libros/moby-dick.webp",
+      "paginas": 635
+    },
+    {
+      "id": 6,
+      "titulo": "Guerra y paz",
+      "descripcion": "Una novela que narra la historia de la invasión francesa a Rusia.",
+      "imagen_portada": "https://raw.githubusercontent.com/jritsqmet/web-api/main/assets/images/api-libros/guerra.jpg",
+      "paginas": 1225
+    },
+    {
+      "id": 7,
+      "titulo": "El guardián entre el centeno",
+      "descripcion": "Una novela sobre las experiencias de un joven en la ciudad de Nueva York.",
+      "imagen_portada": "https://raw.githubusercontent.com/jritsqmet/web-api/main/assets/images/api-libros/el_guardian.jpg",
+      "paginas": 277
+    },
+    {
+      "id": 8,
+      "titulo": "El hobbit",
+      "descripcion": "Una novela de fantasía sobre las aventuras de Bilbo Bolsón.",
+      "imagen_portada": "https://raw.githubusercontent.com/jritsqmet/web-api/main/assets/images/api-libros/hobbit.jpg",
+      "paginas": 310
+    },
+    {
+      "id": 9,
+      "titulo": "Un mundo feliz",
+      "descripcion": "Una novela sobre una sociedad futura distópica basada en la ciencia y la tecnología.",
+      "imagen_portada": "https://raw.githubusercontent.com/jritsqmet/web-api/main/assets/images/api-libros/mfeliz.jpg",
+      "paginas": 311
+    },
+    {
+      "id": 10,
+      "titulo": "La Odisea",
+      "descripcion": "Un poema épico sobre el viaje de Odiseo.",
+      "imagen_portada": "https://raw.githubusercontent.com/jritsqmet/web-api/main/assets/images/api-libros/odisea.jpg",
+      "paginas": 541
+    },
+    {
+      "titulo": "bobo toronja",
+      "descripcion": "libro de niños ",
+      "imagen_portada": "https://th.bing.com/th/id/R.6fe1ccd93cd24abf9fc7e7e16124790d?rik=%2bWXHzh9DdnLfpw&riu=http%3a%2f%2fimages5.fanpop.com%2fimage%2fphotos%2f31300000%2fSpongebob-spongebob-squarepants-31312896-1280-1024.jpg&ehk=c1JZkX%2bBYagqG5Eipqj7Kx7yckB9lPe3I9yjShvUlTI%3d&risl=&pid=ImgRaw&r=0",
+      "paginas": 281,
+      "id": 11
+    }
+  ],
+  "users": [
+    {
+      "email": "alex@mail.com",
+      "password": "$2a$10$GfIpdLb08Z0qVQw0Ob4CU.l6UwRnyF99SKuBB5IpUQlIcZ5bnI.oa",
+      "id": 1
+    },
+    {
+      "email": "erika@mail.com",
+      "password": "$2a$10$/jk1WCn5L.BMWAVcRVXaeuqonAg9DZ4cIPNu6/eej0cl8rmBBBFg2",
+      "id": 2
+    },
+    {
+      "email": "joes95villa@hotmail.com",
+      "password": "$2a$10$adPui2BNwZ8zsK3EckYJ9O1q0JDfSaCt.H66bx0qWOmiMlK0aa3Hu",
+      "id": 3
+    }
+  ]
+}

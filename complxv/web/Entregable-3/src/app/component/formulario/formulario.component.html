@@ -1,0 +1,13 @@
+<form (ngSubmit)="guardar(formulario) " #formulario="ngForm">
+
+    <label for="">Ingrese el Titulo  </label>
+    <input type="text" class="form-control" name="titulo" [(ngModel)]="titulo">
+    <label for="">Ingrese la descripcion</label>
+    <input type="text" class="form-control" name="descripcion" [(ngModel)]="descripcion" >
+    <label for="">Ingrese una imagen</label>
+    <input type="text" class="form-control" name="imagen_portada" [(ngModel)]="imagen_portada"  >
+    <label for="">Ingrese el numero de paginas</label>
+    <input type="number" class="form-control" name="paginas" [(ngModel)]="paginas"  >
+    <button class="btn btn-success"  type="submit">Registrar</button>
+    
+    </form>

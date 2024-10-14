@@ -1,0 +1,20 @@
+<div class="row">
+    @for(item of libros;track item ){
+
+    <div class="col-md-4">
+      <div class="thumbnail">
+        <a href="{{item.imagen_portada}}">
+          <img src="{{item.imagen_portada}}" alt="Lights" style="width:50%">
+        </a>
+          <div class="container-fluid" >
+            <p>ID:{{item.id}}</p>
+            <p>TITULO:{{item.titulo}}</p>
+            <p>DESCRIPCION:{{item.descripcion}}</p>
+            <p>PAGINAS:{{item.paginas}}</p>
+          </div>
+       
+      </div>
+    
+      </div>
+    }
+    </div>
